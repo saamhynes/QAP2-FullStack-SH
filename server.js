@@ -76,6 +76,12 @@ const server = http.createServer((req, res) => {
       serveStaticFile("Views/stylesheet.css", "text/css");
       break;
 
+    case "/favicon.ico":
+      // ignore requests from favicon
+      res.writeHead(204); // No content
+      res.end();
+      break;
+
     default:
       console.log(`Page not found for URL: ${url}.`);
       myLogger.error(`Page not found for URL: ${url}`);

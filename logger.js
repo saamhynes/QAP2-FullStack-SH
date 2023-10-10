@@ -30,6 +30,21 @@ class MyLogger extends EventEmitter {
       }
     });
   }
+
+  error(message) {
+    const logFileName = getLogFileName();
+    const logMessage = `[${new Date().toISOString()}] ${message}\n`;
+
+    // log to the console
+    console.error(logMessage);
+
+    // log to the file
+    fs.appendFile(logFileName, logMessage, (err) => {
+      if (err) {
+        console.log("Error writing to log file:", err);
+      }
+    });
+  }
 }
 
 const myLogger = new MyLogger();
