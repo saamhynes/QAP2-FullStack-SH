@@ -37,12 +37,12 @@ const server = http.createServer((req, res) => {
       serveStaticFile("Views/home.html", "text/html");
       break;
 
-    case "/about":
+    case "/favourites":
       // Read the about.html file from the views folder
       console.log("About page requested.");
       myLogger.log("About page requested.");
       myEmitter.emit("routeAccessed", "/about");
-      serveStaticFile("Views/about.html", "text/html");
+      serveStaticFile("Views/favourites.html", "text/html");
       break;
 
     case "/products":
@@ -61,12 +61,12 @@ const server = http.createServer((req, res) => {
       serveStaticFile("Views/contact.html", "text/html");
       break;
 
-    case "/subscribe":
+    case "/signup":
       // Read the subscribe.html file from the views folder
       console.log("Subscribe page requested.");
       myLogger.log("Subscribe page requested.");
-      myEmitter.emit("routeAccessed", "/subscribe");
-      serveStaticFile("Views/subscribe.html", "text/html");
+      myEmitter.emit("routeAccessed", "/signup");
+      serveStaticFile("Views/signup.html", "text/html");
       break;
 
     case "/stylesheet.css":
